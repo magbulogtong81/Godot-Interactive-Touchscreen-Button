@@ -23,6 +23,7 @@ func _ready() -> void:
 			self.set(k, DefaultValues.get(k))
 			
 	
+	#hide  and disable the button if there's no touchscreen
 	if touchscreen_only and not DisplayServer.is_touchscreen_available():
 		hide()
 		set_disabled(true)
@@ -56,7 +57,7 @@ func _process(delta: float) -> void:
 	
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventScreenTouch :
+	if event is InputEventScreenTouch:
 		if event.pressed and is_in(event.position) :
 			is_pressed = true
 			
